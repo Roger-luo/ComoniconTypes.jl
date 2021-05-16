@@ -29,7 +29,7 @@ Base.@kwdef struct Argument <: ComoniconExpr
     line::Maybe{LineNumberNode} = nothing
 
     function Argument(name, type, vararg, require, default, description, line)
-        require = vararg ? false : true # force require=false for vararg
+        require = vararg ? false : require # force require=false for vararg
         new(name, type, vararg, require, default, description, line)
     end
 end
