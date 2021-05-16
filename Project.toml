@@ -1,7 +1,7 @@
 name = "ComoniconTypes"
 uuid = "d0eb39ce-029e-40d1-add6-e32b3165f6a3"
 authors = ["Roger-Luo <rogerluo.rl18@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 
