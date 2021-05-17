@@ -73,7 +73,6 @@ node = NodeCommand(;name="foo", subcmds=Dict("leaf"=>leaf))
     "  foo <command>" in node
     "Commands\n\n" in node
     "  leaf <arg>" in node
-    "Consequatur dolores et pariatur ut.\n" in node
     "Flags\n\n" in node
     "-h, --help" in node
 end
