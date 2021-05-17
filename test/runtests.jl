@@ -24,6 +24,13 @@ macro test_show(mime, ex)
     return esc(ret)
 end
 
+@testset "convert(Description, ...)" begin
+    @test Description(nothing) == Description()
+    @test convert(Description, nothing) == Description()
+    @test convert(Description, "nothing") == Description("nothing")
+    @test convert(Description, split("abcd. efdasdas.", '.')[1]) == Description("abcd")
+end
+
 @test_show MIME"text/plain" begin
     "<arg>" in Argument(;name="arg")
     "[arg...]" in Argument(;name="arg", vararg=true)
@@ -55,4 +62,18 @@ leaf = LeafCommand(;
     "Args\n\n" in leaf
     "  <arg>" in leaf
     "Flags\n\n" in leaf
+end
+
+@test_throws ErrorException NodeCommand(;name="abc", subcmds=Dict{String, Any}())
+
+
+node = NodeCommand(;name="foo", subcmds=Dict("leaf"=>leaf))
+
+@test_show MIME"text/plain" begin
+    "  foo <command>" in node
+    "Commands\n\n" in node
+    "  leaf <arg>" in node
+    "Consequatur dolores et pariatur ut.\n" in node
+    "Flags\n\n" in node
+    "-h, --help" in node
 end
