@@ -1,6 +1,6 @@
 module ComoniconTypes
 
-export Maybe, ComoniconExpr, Description, LeafCommand, NodeCommand, CLIEntry, Argument, Option, Flag, print_cmd
+export Maybe, ComoniconExpr, Description, LeafCommand, NodeCommand, Entry, Argument, Option, Flag, print_cmd
 
 include("types.jl")
 include("printing.jl")

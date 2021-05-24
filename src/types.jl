@@ -86,7 +86,7 @@ Base.@kwdef struct LeafCommand <: ComoniconExpr
     end
 end
 
-Base.@kwdef struct CLIEntry <: ComoniconExpr
+Base.@kwdef struct Entry <: ComoniconExpr
     root::Union{NodeCommand, LeafCommand}
     version::Maybe{VersionNumber} = nothing
     line::Maybe{LineNumberNode} = nothing

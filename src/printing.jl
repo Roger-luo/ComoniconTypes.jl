@@ -83,7 +83,7 @@ function print_content(io::IO, desc::Description, t::Terminal)
     return
 end
 
-function print_cmd(io::IO, cmd::CLIEntry, t::Terminal)
+function print_cmd(io::IO, cmd::Entry, t::Terminal)
     section(io)
     printstyled(io, tab(2), cmd.root.name; color=t.color.name, bold=true)
     isnothing(cmd.version) || print(io, " v", cmd.version)
@@ -112,7 +112,7 @@ function print_cmd(io::IO, cmd::LeafCommand, t::Terminal)
     print_body(io, cmd, t)
 end
 
-print_head(io::IO, cmd::CLIEntry, t::Terminal) = print_head(io, cmd.root, t)
+print_head(io::IO, cmd::Entry, t::Terminal) = print_head(io, cmd.root, t)
 
 function print_head(io::IO, cmd::NodeCommand, t::Terminal)
     print(io, tab(2))
@@ -157,7 +157,7 @@ function print_signature(io::IO, cmd::LeafCommand, t::Terminal)
     end
 end
 
-function print_body(io::IO, cmd::CLIEntry, t::Terminal)
+function print_body(io::IO, cmd::Entry, t::Terminal)
     print_body(io, cmd.root, t)
     version_flag = "-V, --version"
     printstyled(io, tab(2), version_flag; color=t.color.dash)
