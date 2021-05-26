@@ -5,5 +5,7 @@ export Maybe, ComoniconExpr, Description, LeafCommand, NodeCommand, Entry, Argum
 include("types.jl")
 include("printing.jl")
 include("utils.jl")
+include("precompile.jl")
+_precompile_()
 
 end
