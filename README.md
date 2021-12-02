@@ -4,3 +4,5 @@
 [![codecov](https://codecov.io/gh/comonicon/ComoniconTypes.jl/branch/main/graph/badge.svg?token=g0FlmB4YLj)](https://codecov.io/gh/comonicon/ComoniconTypes.jl)
 
 Comonicon IR types.
+
+This package is now inside [Comonicon](https://github.com/comonicon/Comonicon.jl)
